@@ -79,6 +79,11 @@ function pre_prompt --on-event fish_prompt
   if test $pure_user_host_location -eq 1
     set pre_prompt $pre_prompt $user_and_host
   end
+  
+  # Format if `nix-shell`
+  if set -q NIX_BUILD_CORES
+    set pre_prompt $pre_prompt "$pure_color_red\x6Eix $pure_color_normal"
+  end
 
   # Format current folder on prompt output
   set pre_prompt $pre_prompt "$pure_color_blue$current_folder$pure_color_normal "

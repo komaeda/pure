@@ -132,13 +132,6 @@ function pre_prompt --on-event fish_prompt
     set pre_prompt $pre_prompt $user_and_host
   end
 
-  # Prompt command execution duration
-  if test -n "$CMD_DURATION"
-    set command_duration (__format_time $CMD_DURATION $pure_command_max_exec_time)
-  end
-
-  set pre_prompt $pre_prompt "$pure_color_yellow$command_duration$pure_color_normal"
-
   echo -e -s $pre_prompt
 end
 
